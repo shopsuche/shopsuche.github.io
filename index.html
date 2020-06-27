@@ -3,86 +3,10 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Ergebnisse für {{ .Request }}</title>
+    <title>Shopsuche</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <script>
-        async function livesearch() {
-            const searchstring = document.getElementById("search").value
-            fetch("/?api=true&search="+searchstring).then(function (response) {
-                return response.json()
-            })
-            .then(function (body) {
-                const resulttable = document.getElementById("resulttable")
-                while (resulttable.rows.length > 1) {
-                    resulttable.deleteRow(-1);
-                }
-                if (body != null && body.length > 0) {
-                    for (i = 0; i < body.length; i++) {
-                        console.log(body[i].name)
-                        let row = resulttable.insertRow(i+1)
-
-                        let namep = document.createElement("P")
-                        namep.innerHTML = body[i].name
-                        row.insertCell(0).appendChild(namep)
-
-                        let link = document.createElement("A")
-                        link.href = body[i].url
-                        link.innerHTML = body[i].url
-                        link.target = "_blank"
-                        let linkp = document.createElement("P")
-                        row.insertCell(1).appendChild(linkp).appendChild(link)
-
-                        let tagp = document.createElement("P")
-                        tagp.innerHTML = body[i].tags
-                        row.insertCell(2).appendChild(tagp)
-                    }
-                }
-            })
-        }
-    </script>
-    <style>
-        html {
-            color: #FCFFF5;
-            background-color: #193441;
-        }
-
-        body {
-            font-family: sans-serif;
-        }
-
-        .center {
-            display: flex;
-            justify-content: center;
-            flex-grow: 1;
-        }
-
-        .order {
-            min-width: 50%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        table {
-            border: 1px solid #3E606F;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th {
-            border: 1px solid #3E606F;
-            background-color: #3E606F;
-        }
-
-        td {
-            border: 1px solid #3E606F;
-        }
-
-        p {
-            margin-top: 12px;
-            margin-bottom: 12px;
-            margin-left: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="livesearch.js"></script>
 </head>
 <body>
 <div class="center">
@@ -90,7 +14,7 @@
         <h1>Suche Shops!</h1>
         <p1>Gib Stichworter ein, zu den du Shops finden möchtest:</p1>
         <form id="searchbar" action="/">
-            <input formaction=# type="text" id="search" name="search" placeholder="Suchbegriff..." required autofocus oninput="livesearch()" >
+            <input type="text" id="search" name="search" placeholder="Suchbegriff..." required autofocus autocomplete="off" oninput="livesearch()" onSubmit="return false">
         </form>
         <table id="resulttable">
             <tr>
