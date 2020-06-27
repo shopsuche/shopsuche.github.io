@@ -1,0 +1,41 @@
+html {
+    color: #FCFFF5;
+    background-color: #193441;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.order {
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+table {
+    border: 1px solid #3E606F;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    border: 1px solid #3E606F;
+    background-color: #3E606F;
+}
+
+td {
+    border: 1px solid #3E606F;
+}
+
+p {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    margin-left: 5px;
+}
