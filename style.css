@@ -19,6 +19,19 @@ body {
     flex-direction: column;
 }
 
+form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+input {
+    min-width: 80%;
+    height: 30px;
+    font-size: 14pt;
+    padding-left: 10px;
+}
+
 table {
     border: 1px solid #3E606F;
     border-collapse: collapse;
