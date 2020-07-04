@@ -1,7 +1,7 @@
 async function livesearch() {
     const searchtext = document.getElementById("search").value
     if (searchtext != null) {
-        const searchurl = new URL("/", "https://vortexlab.de")
+        const searchurl = new URL("/", "https://shopsuche.plasamc.de")
         searchurl.searchParams.set("search", searchtext)
         fetch(searchurl).then(function (response) {
             return response.json()
